@@ -24,7 +24,6 @@ class Client:
             raise ValueError('invalid environment')
         self.on_grant = kwargs.get('on_grant')
         self.Auth = auth_for(self)
-        self.Token = token_for(self)
 
     @property
     def auth_url(self):
@@ -39,4 +38,4 @@ class Client:
         return self.ENVIRONMENTS[self.environment]['api_url']
 
     def Token(self, opts = None, **kwargs):
-        return Token(self, opts, **kwargs)
+        return token_for(self, opts, **kwargs)
